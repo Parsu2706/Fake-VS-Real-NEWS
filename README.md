@@ -1,9 +1,6 @@
 # Fake vs Real News Detection using Machine Learning
 
-This project focuses on detecting whether a news article is fake or real using Natural Language Processing (NLP) and Machine Learning. It uses TF-IDF vectorization and a Random Forest Classifier to perform binary classification. The project also includes a user-friendly Streamlit web app for interacting with the model — allowing users to visualize the dataset, predict article authenticity, and evaluate model performance in real-time.
-
-Note: Some large files (e.g., datasets and model files) are not included in this repository to comply with GitHub’s file size limits.  
-To access the dataset, visit the Kaggle source: https://www.kaggle.com/datasets/clmentbisaillon/fake-and-real-news-dataset
+This project focuses on detecting whether a news article is **fake** or **real** using Natural Language Processing (NLP) and Machine Learning. It uses TF-IDF vectorization and a **Random Forest Classifier** to perform binary classification. The project also includes a user-friendly **Streamlit web app** for interacting with the model — allowing users to visualize the dataset, predict article authenticity, and evaluate model performance in real-time.
 
 ---
 
@@ -21,57 +18,66 @@ To access the dataset, visit the Kaggle source: https://www.kaggle.com/datasets/
 ## Key Features
 
 ### 1. Dataset Overview
-
-- Preview top 10 rows  
-- View data types of each column  
-- Check for missing/null values  
-- Display sample headlines and preprocessed text  
-- Display article publication date range
+- Preview the top 10 rows of the dataset  
+- View column data types  
+- Check for missing values  
+- See sample news titles and cleaned text  
+- Display the publication date range  
 
 ### 2. Visualization Dashboard
-
-- Bar chart: Fake vs Real article count  
-- Bar chart: News subject/category frequency  
-- Word clouds for most frequent words (Real and Fake)
-
+- Bar Chart: Fake vs Real news count  
+- Bar Chart: News subject/category frequency  
+- Word Cloud: Top frequent words from cleaned text  
+  
 ### 3. News Authenticity Prediction
-
-- Select or input article content  
-- Automatically preprocess and vectorize input  
-- Predict whether the article is “Fake News” or “Real News”
+- Select a specific article row to view its title  
+- Uses the cleaned version of the text for prediction  
+- Outputs result as: "Fake News" or "Real News"  
 
 ### 4. Model Evaluation
-
-- Dataset is split 80/20 for training/testing  
-- Outputs include:  
+- Splits dataset internally (80/20) for evaluation  
+- Displays:  
   - Accuracy score  
-  - Precision, Recall, and F1-Score  
-  - Confusion Matrix and Classification Report (visualized with heatmap)
+  - Classification report (precision, recall, F1-score)  
+  - Confusion matrix heatmap  
 
+---
 
+## Tools and Technologies Used
 
-Core Concepts and Formulas
-### TF-IDF (Term Frequency - Inverse Document Frequency)  
-**TF-IDF(t, d)** = TF(t, d) × log(N / DF(t))
+| Category        | Tools & Libraries                                              |
+|----------------|----------------------------------------------------------------|
+| Language        | Python                                                         |
+| ML Algorithms   | Random Forest (Scikit-learn)                                   |
+| Text Processing | TF-IDF, NLTK, Stopwords                                        |
+| Visualization   | Matplotlib, Seaborn, WordCloud                                 |
+| Frontend        | Streamlit                                                      |
+| Others          | Pandas, NumPy, Pickle, OS, Regex                               |
 
-- **TF(t, d)**: Frequency of term *t* in document *d*  
-- **DF(t)**: Number of documents containing term *t*  
-- **N**: Total number of documents in the corpus
+---
 
-TF-IDF helps identify important words in a document by balancing how often a term appears in that document vs. how common it is across all documents.
+## Dataset Details
 
-This helps eliminate common but uninformative words, giving more importance to discriminative terms.
+**Source:** e.g., Kaggle or custom dataset
 
-🔹 Evaluation Metrics
-### Accuracy
-**Accuracy** = (TP + TN) / (TP + TN + FP + FN)
+**Columns:**
 
-### Precision
-**Precision** = TP / (TP + FP)
+- `title`: News headline  
+- `text`: Full content of the news article  
+- `clean_text`: Preprocessed text used for machine learning model  
+- `label`: Binary label (0 = Fake, 1 = Real)  
+- `subject`: News category (e.g., worldnews, politics)  
+- `date`: Date of publication  
 
-### Recall
-**Recall** = TP / (TP + FN)
+---
 
-### F1-Score
-**F1 Score** = 2 × (Precision × Recall) / (Precision + Recall)
-​
+## Skills Demonstrated
+
+- End-to-end machine learning pipeline development  
+- Natural Language Processing (NLP) cleaning using tokenization, stopword removal  
+- TF-IDF based feature engineering  
+- Binary classification using Random Forest  
+- Dashboard development using Streamlit  
+- Model evaluation using confusion matrix and classification report  
+- Modularized and maintainable codebase structure  
+
