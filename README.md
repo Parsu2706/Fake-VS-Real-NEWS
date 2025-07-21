@@ -48,145 +48,30 @@ To access the dataset, visit the Kaggle source: https://www.kaggle.com/datasets/
   - Precision, Recall, and F1-Score  
   - Confusion Matrix and Classification Report (visualized with heatmap)
 
----
 
-## Project Structure
-
-Fake-VS-Real-NEWS/
-│
-├── data/
-│ └── raw/raw.csv # Raw data (excluded from repo)
-│
-├── models/
-│ ├── best_rf_model.pkl
-│ └── tfidf_vectorizer.pkl
-│
-├── src/
-│ ├── data_loader.py
-│ ├── preprocess.py
-│ ├── train.py
-│ └── init.py
-│
-├── notebooks/
-│ └── fake_news.ipynb
-│
-├── app.py # Streamlit web application
-├── run_preprocessing.py # Run data preprocessing
-├── requirements.txt
-└── README.md
 
 Core Concepts and Formulas
-🔹 TF-IDF Vectorization
-TF-IDF (Term Frequency-Inverse Document Frequency) weighs a word’s importance across documents:
+### TF-IDF (Term Frequency - Inverse Document Frequency)  
+**TF-IDF(t, d)** = TF(t, d) × log(N / DF(t))
 
-TF-IDF
-(
-𝑡
-,
-𝑑
-)
-=
-TF
-(
-𝑡
-,
-𝑑
-)
-×
-log
-⁡
-(
-𝑁
-𝐷
-𝐹
-(
-𝑡
-)
-)
-TF-IDF(t,d)=TF(t,d)×log( 
-DF(t)
-N
-​
- )
-TF(t, d): Frequency of term t in document d
+- **TF(t, d)**: Frequency of term *t* in document *d*  
+- **DF(t)**: Number of documents containing term *t*  
+- **N**: Total number of documents in the corpus
 
-DF(t): Number of documents containing term t
-
-N: Total number of documents in corpus
+TF-IDF helps identify important words in a document by balancing how often a term appears in that document vs. how common it is across all documents.
 
 This helps eliminate common but uninformative words, giving more importance to discriminative terms.
 
 🔹 Evaluation Metrics
-Accuracy
+### Accuracy
+**Accuracy** = (TP + TN) / (TP + TN + FP + FN)
 
-Accuracy
-=
-𝑇
-𝑃
-+
-𝑇
-𝑁
-𝑇
-𝑃
-+
-𝑇
-𝑁
-+
-𝐹
-𝑃
-+
-𝐹
-𝑁
-Accuracy= 
-TP+TN+FP+FN
-TP+TN
-​
- 
-Precision
+### Precision
+**Precision** = TP / (TP + FP)
 
-Precision
-=
-𝑇
-𝑃
-𝑇
-𝑃
-+
-𝐹
-𝑃
-Precision= 
-TP+FP
-TP
-​
- 
-Recall
+### Recall
+**Recall** = TP / (TP + FN)
 
-Recall
-=
-𝑇
-𝑃
-𝑇
-𝑃
-+
-𝐹
-𝑁
-Recall= 
-TP+FN
-TP
-​
- 
-F1-Score
-
-F1
-=
-2
-×
-Precision
-×
-Recall
-Precision
-+
-Recall
-F1=2× 
-Precision+Recall
-Precision×Recall
+### F1-Score
+**F1 Score** = 2 × (Precision × Recall) / (Precision + Recall)
 ​
