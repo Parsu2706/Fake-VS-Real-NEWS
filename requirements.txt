@@ -1,0 +1,13 @@
+pandas 
+numpy 
+matplotlib 
+seaborn
+nltk 
+spacy 
+textstat 
+scikit-learn
+xgboost 
+catboost 
+streamlit
+
+
